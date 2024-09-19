@@ -43,7 +43,7 @@ public class ProblemC
         "O" means the game is valid and was played
         "X" means the game was not played either because of a duplicate match or because of a self-match
 
-        this loop basically creates a triangle like in problem A, but with one less number per row
+        this loop basically creates a triangle like in problem B, but with one less number per row
         */
         for(int i = 0; i <= entrants - 1; i++){
             for(int j = 0;j <= i; j++){

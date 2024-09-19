@@ -39,7 +39,7 @@ public class LetterCount
                 timesRemoved++;
             }
             if (string.indexOf(removedChar) == -1){
-                System.out.println(removedChar + "\t" + timesRemoved);
+                System.out.println(removedChar + "\t\t" + timesRemoved);
             }
         }
     }
