@@ -5,9 +5,10 @@ public class ProblemC
 
         Tournament tournament = new Tournament();
         Scanner input = new Scanner(System.in);
-        double randomSkillLevel = 0;
+        double randomSkillLevel;
         int entrants = 0;
 
+        //it would be stupid to run a tournament with less than 2 players, so this loop won't allow that to happen
         while(entrants < 2){
             System.out.print("How many participants do you want?: ");
             entrants = input.nextInt();
@@ -16,25 +17,48 @@ public class ProblemC
             }
         }
 
+        //this loop adds new players
         for(int i = entrants; i > 0; i--){
-            //cannot be zero
+            //randomSkillLevel cannot be zero (or else the addPlayer() method will throw an exception)
+            randomSkillLevel = Math.random();
+            //a do-while loop can be used here but i won't use it
             while(randomSkillLevel == 0){
                 randomSkillLevel = Math.random();
             }
             tournament.addPlayer(randomSkillLevel);
         }
 
+        /*
+        this loop puts each player against each other player exactly once
+
+        think about it like making a table, where the row number is played against the column number
+        example with 5 players in the tournament:
+          0 1 2 3 4
+        0 X X X X X
+        1 O X X X X
+        2 O O X X X
+        3 O O O X X
+        4 O O O O X
+
+        "O" means the game is valid and was played
+        "X" means the game was not played either because of a duplicate match or because of a self-match
+
+        this loop basically creates a triangle like in problem A, but with one less number per row
+        */
         for(int i = 0; i <= entrants - 1; i++){
             for(int j = 0;j <= i; j++){
                 if(i == j){
+                    //if the row and column number are the same, that means a self-match has occurred
+                    //so we'll terminate the inside loop BEFORE it can play the illegal match
                     break;
                 }
                 tournament.play(i, j);
             }
         }
 
+        //prints out each participant and their number of wins
         for(int i = 0; i <= entrants -1; i++){
-            System.out.println("Player " + i + " got " + (tournament.getNumWins(i) + " wins!"));
+            System.out.println("Player " + i + " got " + tournament.getNumWins(i) + " wins!");
         }
     }
 }
