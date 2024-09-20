@@ -45,7 +45,7 @@ public class ProblemC
 
         this loop basically creates a triangle like in problem B, but with one less number per row
         */
-        for(int i = 0; i <= entrants - 1; i++){
+        for(int i = 0; i < entrants; i++){
             for(int j = 0;j <= i; j++){
                 if(i == j){
                     //if the row and column number are the same, that means a self-match has occurred
@@ -57,7 +57,7 @@ public class ProblemC
         }
 
         //prints out each participant and their number of wins
-        for(int i = 0; i <= entrants -1; i++){
+        for(int i = 0; i < entrants; i++){
             System.out.println("Player " + i + " got " + tournament.getNumWins(i) + " wins!");
         }
     }
