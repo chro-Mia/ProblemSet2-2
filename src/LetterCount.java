@@ -12,10 +12,10 @@ public class LetterCount
         /*
         main logic loop
         this loop runs for however long the string is
-        the loop takes the character at the index it's currently at and checks it against all characters in the string
+        the loop creates a substring at each index in the string
+        this substring will be checked against all the characters in the string
         repeat until all characters have been counted
         */
-
         for(int i = 0; i < string.length(); i++){
 
             int instances = 0;
@@ -23,7 +23,7 @@ public class LetterCount
 
             for(int j = 0; j < string.length(); j++){
                 String checkedChar = string.substring(j, j + 1);
-                if(checkerChar.equals(checkedChar)){
+                if(checkedChar.equals(checkerChar)){
                     instances++;
                 }
             }
