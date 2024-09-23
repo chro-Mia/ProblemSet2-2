@@ -12,8 +12,8 @@ public class LetterCount
         /*
         main logic loop
         this loop runs for however long the string is
-        the loop creates a substring at each index in the string
-        this substring will be checked against all the characters in the string
+        the loop creates a substring that is a single character for each character in the string
+        these substring will be checked against all the characters in the string
         repeat until all characters have been counted
         */
         for(int i = 0; i < string.length(); i++){
