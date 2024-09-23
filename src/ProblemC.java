@@ -19,12 +19,7 @@ public class ProblemC
 
         //this loop adds new players
         for(int i = entrants; i > 0; i--){
-            //randomSkillLevel cannot be zero (or else the addPlayer() method will throw an exception)
             randomSkillLevel = Math.random();
-            //a do-while loop can be used here but i won't use it
-            while(randomSkillLevel == 0){
-                randomSkillLevel = Math.random();
-            }
             tournament.addPlayer(randomSkillLevel);
         }
 
@@ -46,12 +41,7 @@ public class ProblemC
         this loop basically creates a triangle like in problem B, but with one less number per row
         */
         for(int i = 0; i < entrants; i++){
-            for(int j = 0;j <= i; j++){
-                if(i == j){
-                    //if the row and column number are the same, that means a self-match has occurred
-                    //so we'll terminate the inside loop BEFORE it can play the illegal match
-                    break;
-                }
+            for(int j = 0;j < i; j++){
                 tournament.play(i, j);
             }
         }
