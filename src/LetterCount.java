@@ -3,7 +3,6 @@ public class LetterCount
 {
     public static void main(String[] args){
 
-        String string1;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter any string:");
         String string = input.nextLine();
@@ -12,35 +11,24 @@ public class LetterCount
 
         /*
         main logic loop
-        the loop will run until every character in the string is counted
-        the inner loop will create a new string that excludes the first instance of the character to be removed
-        this increments the counter
-        the loop repeats until all the characters of one type have been removed
-        once the loop is done, we print the character and the number of times it appeared
+        this loop runs for however long the string is
+        the loop takes the character at the index it's currently at and checks it against all characters in the string
         repeat until all characters have been counted
         */
-        while(string.length() != 0){
 
-            String removedChar = string.substring(0, 1);
-            int timesRemoved = 0;
+        for(int i = 0; i < string.length(); i++){
 
-            while(string.indexOf(removedChar) != -1)
-            {
+            int instances = 0;
+            String checkerChar = string.substring(i, i + 1);
 
-                //removedChar at index 0 would cause unintended behavior, so there is a special case for that
-                if(string.indexOf(removedChar) == 0){
-                    string1 = string.substring(1, string.indexOf(removedChar) + 1);
+            for(int j = 0; j < string.length(); j++){
+                String checkedChar = string.substring(j, j + 1);
+                if(checkerChar.equals(checkedChar)){
+                    instances++;
                 }
-                else{
-                    string1 = string.substring(0, string.indexOf(removedChar));
-                }
-                String string2 = string.substring(string.indexOf(removedChar) + 1);
-                string = string1 + string2;
-                timesRemoved++;
             }
-            if (string.indexOf(removedChar) == -1){
-                System.out.println(removedChar + "\t\t" + timesRemoved);
-            }
+
+            System.out.println(checkerChar + "\t" + instances);
         }
     }
 }
