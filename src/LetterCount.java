@@ -28,7 +28,7 @@ public class LetterCount
                 }
             }
 
-            System.out.println(checkerChar + "\t" + instances);
+            System.out.println(checkerChar + "\t\t" + instances);
         }
     }
 }
